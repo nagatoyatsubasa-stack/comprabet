@@ -115,7 +115,6 @@
             cursor: pointer;
         }
         
-        /* Botão de Play Alternativo caso o navegador bloqueie */
         .play-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -126,7 +125,7 @@
             font-size: 4rem;
             cursor: pointer;
             z-index: 10;
-            display: none; /* Escondido por padrão */
+            display: none;
         }
 
         .destaque-price-alert {
@@ -194,7 +193,6 @@
             padding: 30px;
             background: #111;
         }
-        /* Garantir que os SVGs embutidos preencham o espaço de forma bonita */
         .card-image-logo svg {
             max-width: 100%;
             height: 100%;
@@ -249,7 +247,8 @@
                     <span>💰</span>
                     <span>COMPRABET</span>
                 </div>
-                <a href="https://t.me/SEU_USUARIO_TELEGRAM" class="btn btn-telegram" target="_blank">
+                <!-- NOVO CONTATO APLICADO ABAIXO -->
+                <a href="https://t.me/+13502012601" class="btn btn-telegram" target="_blank">
                     ✈️ VENDER CONTA
                 </a>
             </div>
@@ -276,7 +275,8 @@
                 <p>Chame no Telegram para garantir sua avaliação rápida!</p>
             </div>
 
-            <a href="https://t.me/SEU_USUARIO_TELEGRAM" class="btn btn-telegram" style="padding: 20px 40px; font-size: 1.2rem; width: 100%; max-width: 500px;" target="_blank">
+            <!-- NOVO CONTATO APLICADO ABAIXO -->
+            <a href="https://t.me/+13502012601" class="btn btn-telegram" style="padding: 20px 40px; font-size: 1.2rem; width: 100%; max-width: 500px;" target="_blank">
                 ✈️ QUERO VENDER MINHA CONTA AGORA
             </a>
         </div>
@@ -365,7 +365,6 @@
     </footer>
 
     <script>
-        // Lógica da Contagem Regressiva Infinita (10 min)
         function startTimer(duration, display) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
@@ -381,16 +380,13 @@
         }
 
         window.onload = function () {
-            // Inicia o timer
             var tenMinutes = 60 * 10;
             var display = document.querySelector('#countdown');
             startTimer(tenMinutes, display);
             
-            // FORÇAR O PLAY DO VÍDEO
             var video = document.getElementById('mainVideo');
             var playBtn = document.getElementById('playBtn');
 
-            // Certifica que está mutado (Navegadores exigem isso para autoplay)
             video.muted = true;
             video.defaultMuted = true;
             
@@ -398,12 +394,10 @@
 
             if (playPromise !== undefined) {
                 playPromise.catch(function(error) {
-                    console.log("Autoplay bloqueado pelo navegador. Exibindo botão de play.");
                     playBtn.style.display = 'flex';
                 });
             }
 
-            // Clicar no botão ou no próprio vídeo força ele a tocar
             playBtn.addEventListener('click', function() {
                 video.play();
                 playBtn.style.display = 'none';
@@ -416,7 +410,6 @@
                 }
             });
             
-            // Um toque em qualquer lugar da tela também tenta forçar o vídeo a rodar
             document.body.addEventListener('click', function() {
                 if(video.paused) {
                     video.play();
